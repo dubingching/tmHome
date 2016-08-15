@@ -1,0 +1,106 @@
+ @mixin data-dpr($value:12px) {
+	font-size:$value;
+	[data-dpr="2"] & {
+		font-size: $value*2;
+	}
+	[data-dpr="3"] & {
+		font-size: $value*3;
+	}
+}
+$browser-defailt-font-size: 75px !default;
+@function pxTorem($px) {
+	@return $px / $browser-defailt-font-size * 1rem;
+}
+.item-section {
+	@include data-dpr(12px);
+	min-height:100%;
+	background-color:#ee0a3b;
+	position:relative;
+	ul {
+		padding: pxTorem(10px)
+	}
+}
+.item-section-header {
+	text-align: center;
+	img {
+		width: pxTorem(750px);
+	}
+}
+.flag {
+	display:table;
+	width:100%;
+	margin-bottom:1px;
+	background-color:#ffffff;
+	.flag-item {
+		display: table-cell;
+		padding-top:pxTorem(20px);
+		padding-bottom:pxTorem(20px);
+		vertical-align:top;
+		background-color:#fff;
+	}
+	.figure {
+		width: pxTorem(176px);
+		height: pxTorem(176px);
+		img {
+			width: pxTorem(176px);
+			height: pxTorem(176px);
+			vertical-align: top;
+		}
+	}
+	.figcaption {
+		padding-left:pxTorem(16px);
+	}
+	.flag-title a {
+		color: #000000;
+		overflow: hidden;
+		-webkit-line-clamp: 2;
+		line-clamp:2;
+		-webkit-box-orient: vertical;
+		box-orient:vertical;
+		display: -webkit-box;
+		display: box;
+	}
+	.flag-price {
+		padding-top:pxTorem(11.25px);
+		padding-bottom:pxTorem(15px);
+		span,strong,small {
+			display: inline-block;
+			vertical-align:middle;
+			font-weight: 700;
+		}
+		span {
+			border-radius:.02667rem;
+			padding:.026667rem .08rem .013333rem;
+			color:#fff;
+			background-color:#ee0a3b;
+			margin-right:.066667rem;
+			@include data-dpr(11px);
+		}
+		strong {
+			margin-right:.16rem;
+			color:#ee0a3b;
+			@include data-dpr(16px);
+		}
+		small {
+			color:#ee0a3b;
+			@include data-dpr(12px);
+		}
+	}
+	.flag-type {
+		color: #ff3600;
+	}
+	.flag-btn {
+		position:absolute;
+		width: pxTorem(160px);
+		height: pxTorem(48px);
+		line-height: pxTorem(48px);
+		margin-bottom: pxTorem(15px);
+		font-weight: 700;
+		text-align: center;
+		background-color: #ee0a3b;
+		color: #fff;
+		bottom:pxTorem(10px);
+		right: pxTorem(16px);
+		@include data-dpr(14px);
+	}
+}
